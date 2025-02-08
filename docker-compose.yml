@@ -1,0 +1,106 @@
+version: '3.9'
+
+services:
+  backend:
+    image: backend:latest
+    container_name: backend
+    command: sh -c "python3 manage.py makemigrations && python3 manage.py migrate && python3 manage.py runserver 0.0.0.0:8000"
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    depends_on:
+      - mongodb
+      - redis
+    environment:
+      - DJANGO_DB_HOST=mongodb://mongodb
+      - DJANGO_DB_PORT=27017
+      - KAFKA_BROKER=kafka:9092
+      - REDIS_HOST=redis
+      - KAFKA_TOPIC=orders
+    networks:
+      - app-network
+    
+  backend_consumer:
+    image: backend:latest
+    container_name: backend-consumer
+    volumes:
+      - .:/app
+    depends_on:
+      - mongodb
+      - redis
+    environment:
+      - DJANGO_DB_HOST=mongodb://mongodb
+      - DJANGO_DB_PORT=27017
+      - KAFKA_BROKER=kafka:9092
+      - REDIS_HOST=redis
+      - KAFKA_TOPIC=orders
+    networks:
+      - app-network
+    command: python3 manage.py run_kafka_consumer
+
+  frontend:
+    image: frontend:latest
+    container_name: frontend
+    ports:
+      - "3000:3000"
+    
+    volumes:
+      - .:/app
+
+  mongodb:
+    image: mongo:6.0
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    networks:
+      - app-network
+    volumes:
+      - mongo_data:/data/db
+  
+  kafka:
+    image: wurstmeister/kafka:latest
+    container_name: kafka
+    environment:
+      KAFKA_ADVERTISED_LISTENER: INSIDE:9093
+      KAFKA_LISTENER_SECURITY_PROTOCOL: PLAINTEXT
+      KAFKA_LISTENER_NAME: INSIDE
+      KAFKA_LISTENER_PORT: 9093
+      KAFKA_LISTENER_INTERFACE: eth0
+      KAFKA_LISTENER_OUTSIDE_PORT: 9092
+      KAFKA_LISTENER_OUTSIDE_INTERFACE: eth0
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ZOOKEEPER_SECURITY_PROTOCOL: PLAINTEXT
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      KAFKA_DELETE_TOPIC_ENABLE: "true"
+    ports:
+      - "9093:9093"
+    networks:
+      - app-network
+
+  zookeeper:
+    image: wurstmeister/zookeeper:latest
+    container_name: zookeeper
+    environment:
+      ZOOKEEPER_TICK_TIME: 2000
+      ZOOKEEPER_SYNC_LIMIT: 2
+    ports:
+      - "2181:2181"
+    networks:
+      - app-network
+
+  redis:
+    image: redis:latest
+    container_name: redis
+    ports:
+      - "6379:6379"
+    networks:
+      - app-network
+
+volumes:
+  mongo_data:
+
+networks:
+  app-network:
+    driver: bridge

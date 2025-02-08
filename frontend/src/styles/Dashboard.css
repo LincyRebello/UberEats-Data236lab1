@@ -1,0 +1,166 @@
+/* Dashboard.css */
+
+/* Container for the grid */
+.dashboard-container {
+    padding: 20px;
+  }
+  
+  .restaurant-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    gap: 20px;
+  }
+  
+  /* Restaurant card styling */
+  .restaurant-card {
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: white;
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .restaurant-card:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Image for each restaurant */
+  .restaurant-image {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-bottom: 1px solid #ddd;
+    transition: transform 0.3s ease;
+  }
+  
+  .restaurant-card:hover .restaurant-image {
+    transform: scale(1.05);
+  }
+  
+  /* Restaurant info: name, rating, and offers */
+  .restaurant-info {
+    padding: 15px;
+    text-align: left;
+  }
+  
+  /* Name and Rating */
+  .restaurant-info h3 {
+    margin: 10px 0 5px;
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+  
+  .restaurant-rating {
+    color: #555;
+    margin-bottom: 10px;
+  }
+  
+  /* Delivery fee and time info */
+  .restaurant-details {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 10px;
+  }
+  
+  /* Offers (Buy 1 Get 1 Free, Top Offer, etc.) */
+  .restaurant-offers {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+  }
+  
+  /* .offer-badge {
+    background-color: #2ecc71;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+  } */
+  
+  .offer-badge:first-child {
+    background-color: #f1c40f;
+  }
+  
+  /* Responsive Design */
+  
+  @media (max-width: 768px) {
+    .restaurant-grid {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+  
+    .restaurant-image {
+      height: 140px;
+    }
+  
+    .restaurant-info h3 {
+      font-size: 1rem;
+    }
+  
+    .restaurant-details {
+      font-size: 0.8rem;
+    }
+  
+    .offer-badge {
+      font-size: 0.75rem;
+      padding: 4px 8px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .restaurant-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .restaurant-image {
+      height: 130px;
+    }
+  
+    .restaurant-info h3 {
+      font-size: 0.9rem;
+    }
+  
+    .restaurant-details {
+      font-size: 0.75rem;
+    }
+  
+    .offer-badge {
+      font-size: 0.7rem;
+      padding: 3px 7px;
+    }
+  }
+
+  .filter-button {
+    background-color: #f0f0f0 !important;
+    color: #333 !important;
+    border: 1px solid #ccc!important;
+    border-radius: 20px;
+    padding: 8px 16px;
+    margin: 0 10px;
+    transition: all 0.3s ease;
+  }
+  
+  .filter-button:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .filter-button.active {
+    background-color: #d0d0d0;
+    font-weight: bold;
+  }
+  
+  .reset-button {
+    background-color: #808080 !important;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 16px;
+    transition: all 0.3s ease;
+  }
+  
+  .reset-button:hover {
+    background-color: #707070;
+  }
+  
+  

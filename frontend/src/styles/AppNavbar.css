@@ -1,0 +1,227 @@
+.navbar {
+  padding: 10px 0;
+  background-color: transparent !important;
+  z-index: 1000;
+  /* border-bottom: 1px solid #e5e5e5; */
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.nav_hamburger-menu {
+  background: none;
+  border: none;
+  font-size: 35px;
+  cursor: pointer;
+}
+
+.logo {
+  font-size: 30px;
+  font-family:"Futura", sans-serif;
+  /* font-weight: bold; */
+  color: black;
+  margin-top: 30px;
+  display: inline-block; /* Keep it inline */
+  white-space: nowrap;
+}
+.navbar-left {
+  display: flex;
+  align-items: center; /* Center items vertically */
+}
+.logo a {
+  text-decoration: none;
+  color: inherit;
+}
+.logo b {
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+  margin-top: 30px;
+}
+
+.navbar-middle {
+  display: flex;
+  align-items: center;
+}
+
+.order-toggle {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+  height: 40px; 
+}
+
+.order-btn {
+  background-color: white;
+  border: 1px solid #e5e5e5;
+  border-radius: 20px;
+  padding: 5px 15px;
+  margin: 0 5px;
+  cursor: pointer;
+  font-weight: 500;
+  z-index: 1; 
+  transition: color 0.3s ease; 
+}
+
+.order-btn.active {
+  color: #00c72e; 
+}
+
+.slider {
+  position: absolute;
+  width: 50%; /* Width for two buttons */
+  height: 100%;
+  background-color: #00c72e; /* Slider color */
+  border-radius: 20px; /* Slider rounding */
+  transition: left 0.3s ease; /* Smooth slide transition */
+  z-index: 0; /* Slider stays behind buttons */
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: black;
+  cursor: pointer; /* Pointer for dropdown */
+}
+
+.address-text {
+  margin-right: 5px; /* Space between icon and text */
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: #f5f5f5;
+  padding: 5px 10px;
+  border-radius: 25px;
+  margin-right: 30px;
+  width: 700px; /* Adjust the width for smaller screens */
+}
+
+.search-bar svg {
+  margin-right: 10px;
+}
+
+.search-bar input {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  width: 100%; 
+}
+
+.cart-icon {
+  font-size: 22px;
+  cursor: pointer;
+  position: relative;
+  margin-right: 50px !important
+}
+
+.badge {
+  padding: 0.5em; /* Adjust padding for badge */
+  color: white;
+  font-size: 0.75rem; /* Adjust font size of badge */
+}
+
+.modal-content {
+  border: none; /* Remove default border */
+  border-radius: 10px; /* Rounded corners for consistency */
+}
+
+.modal-header {
+  border-bottom: 1px solid #e5e5e5; /* Match the navbar border */
+  background-color: white; /* Background color matching the navbar */
+  padding: 15px; /* Adjust padding to match navbar */
+}
+
+.modal-title {
+  font-size: 24px; /* Adjust font size as needed */
+  color: black; /* Match the text color of the navbar */
+}
+
+.modal-body {
+  padding: 20px; /* Padding for the body */
+  background-color: #f5f5f5; /* Background color for body */
+}
+
+.modal-footer {
+  border-top: 1px solid #e5e5e5; /* Match navbar border */
+  background-color: white; /* Background color matching the navbar */
+  padding: 10px; /* Padding for footer */
+}
+
+.btn-primary {
+  background-color: #1b1c1b; /* Match button color to active state of navbar */
+  border: none; /* No border */
+}
+
+.btn-primary:hover {
+  background-color: #010101; /* Darken button on hover */
+}
+* Sidebar Styles 
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px; /* Initially hidden off-screen */
+  width: 250px;
+  height: 100%;
+  background-color: #f5f5f5;
+  transition: 0.3s ease;
+  z-index: 1000;
+}
+
+.sidebar.active {
+  left: 0; /* When sidebar is active, move it into view */
+}
+
+.sidebar-content {
+  padding: 20px;
+}
+
+.sidebar h2 {
+  margin-top: 10px;
+  font-size: 24px;
+}
+
+.sidebar .nav-item {
+  padding: 10px 0;
+  cursor: pointer;
+}
+
+/* Overlay for dimming background */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent gray */
+  z-index: 500; /* Layer it under the sidebar but above the rest */
+}
+
+
+/* Adjusting input field styles in modal */
+.modal-body input {
+  border: 1px solid #e5e5e5; /* Match input field border */
+  border-radius: 5px; /* Rounded corners for input */
+  padding: 10px; /* Padding for input field */
+  width: 100%; /* Full width */
+}
+
+
+@media (max-width: 768px) {
+  .navbar-middle {
+    display: none;
+  }
+
+  .search-bar {
+    width: 150px; /* Adjust the search bar size for smaller screens */
+  }
+}

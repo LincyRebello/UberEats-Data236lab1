@@ -1,0 +1,135 @@
+/* .card img {
+    border-radius: .25rem;
+  }
+  
+  
+  .card-body h5,
+  .card-body p,
+  .card-body span.price-badge {
+    margin-bottom: .5rem;
+  }
+  
+  
+  .btn-dark.btn-sm,
+  .btn-primary.btn-sm {
+    font-size: smaller;
+  }
+  
+  
+  hr {
+    border-top: solid #ccc;
+  }
+  
+  
+  .text-white small.text-white {
+    color:white;
+} */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa;
+}
+
+.navbar {
+    background-color: #000000;
+    padding: 1rem;
+}
+
+.navbar-brand {
+    color: #06C167 !important;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* .navbar-brand span {
+    color: #ffffff;
+} */
+
+.navbar .btn {
+    color: #ffffff;
+    margin-left: 1rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+}
+
+h2 {
+    color: #000000;
+    margin-bottom: 1.5rem;
+}
+
+.card {
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card img {
+    border-radius: .25rem .25rem 0 0;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 1.25rem;
+}
+
+.card-body h5 {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.card-body p {
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+.price-badge {
+    background-color: #06C167;
+    color: #ffffff;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-weight: bold;
+}
+
+.btn-primary {
+    background-color: #06C167;
+    border-color: #06C167;
+}
+
+.btn-primary:hover {
+    background-color: #05a757;
+    border-color: #05a757;
+}
+
+.btn-danger {
+    background-color: #ff3b30;
+    border-color: #ff3b30;
+}
+
+.btn-danger:hover {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+hr {
+    border-top: 1px solid #e0e0e0;
+    margin: 2rem 0;
+}
+
+.form-control, .form-select {
+    border: 1px solid #ced4da;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #06C167;
+    box-shadow: 0 0 0 0.2rem rgba(6, 193, 103, 0.25);
+}

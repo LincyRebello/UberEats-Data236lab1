@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@400;700&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f8f9fa;
+}
+
+h1 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  color: #000000;
+}
+
+.card {
+  border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.order-id {
+  font-weight: 700;
+  color: #4a4a4a;
+}
+
+.restaurant-name {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2rem;
+  color: #000000;
+}
+
+.total-price {
+  font-weight: 700;
+  color: #000000;
+}
+
+.list-group-item {
+  border: none;
+  padding: 0.5rem 0;
+}
+
+.badge {
+  font-weight: 500;
+}
+
+.btn-primary {
+  background-color: #06C167;
+  border-color: #06C167;
+}
+
+.btn-primary:hover {
+  background-color: #05a757;
+  border-color: #05a757;
+}
+
+.btn-danger {
+  background-color: #ff3b30;
+  border-color: #ff3b30;
+}
+
+.btn-danger:hover {
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .card-title {
+    font-size: 1rem;
+  }
+}

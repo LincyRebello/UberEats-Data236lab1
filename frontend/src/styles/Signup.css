@@ -1,0 +1,81 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f8f8f8; /* Light grey background similar to UberEats */
+  }
+  
+  .signup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f8f8f8;
+  }
+  
+  .signup-card {
+    background: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+  }
+  
+  .signup-title {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  
+  .signup-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .signup-input {
+    padding: 15px;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+  
+  .signup-input:focus {
+    outline: none;
+    border-color: #333; /* Adds a darker border to make it more prominent when focused */
+  }
+  
+  .signup-button {
+    background-color: #000; /* Black color similar to UberEats theme */
+    color: #fff;
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .signup-button:hover {
+    background-color: #333; /* Darker black for hover effect */
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 600px) {
+    .signup-card {
+      padding: 20px;
+      width: 90%;
+    }
+  
+    .signup-input {
+      padding: 12px;
+    }
+  
+    .signup-button {
+      padding: 12px;
+    }
+  }
+  

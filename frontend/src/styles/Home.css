@@ -1,0 +1,153 @@
+.home {
+  background-image: url('../images/bg.jpeg'); 
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  overflow: hidden;
+}
+
+
+/* */
+
+.home_header b {
+  color: rgb(0, 182, 0);
+}
+
+.home_header h1 {
+  color: rgb(5, 5, 5);
+  font-size: 60px;
+}
+
+.home_header {
+  padding: 150px 20px;
+  background-size: cover;
+  background-position: center;
+}
+
+.home_navbar {
+  background-color: transparent !important;
+  position: absolute;
+  top: -30px;
+  width: 100%;
+  z-index: 1050;
+  border: none !important;
+}
+
+.home_logo {
+  font-size: 36px;
+  color: #000;
+}
+
+.home_nav-right .btn {
+  padding: 10px 20px;
+  border-radius: 20px;
+}
+
+.home_search-bar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 20px;
+}
+
+.home_search-bar input {
+  padding: 15px;
+  width: 400px;
+  border-radius: 10px;
+  font-size: 18px;
+}
+
+.home_search-bar select, .home_search-bar button {
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 18px;
+}
+
+.home_search-btn {
+  padding: 15px 25px;
+  border-radius: 25px; /* Make the button rounded */
+  font-size: 18px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap; /* Prevent text from wrapping */
+}
+/* .home_search-bar button {
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 15px;
+} */
+.home_suggestions-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  background: #fff;
+  border: 1px solid #ddd;
+  max-height: 200px;
+  overflow-y: auto;
+  width: 400px;
+  z-index: 1000;
+}
+
+.home_suggestions-list li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.home_suggestions-list li:hover {
+  background-color: #f0f0f0;
+}
+
+.home_or-signin {
+  text-align: right;
+  margin-right: 10px;
+}
+
+.home_hamburger-menu {
+  background: none;
+  border: none;
+  font-size: 35px;
+  cursor: pointer;
+  margin-left: -50px
+}
+
+.overlay {
+  position: fixed; /* Cover the whole screen */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Black with 50% opacity */
+  z-index: 900; /* Below the sidebar but above other content */
+  display: none; /* Hide by default */
+}
+
+.overlay.active {
+  display: block; /* Show when active */
+}
+
+
+/* Adjusted search button to be rounded */
+.home_search-btn {
+  border-radius: px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .home_search-bar input {
+    width: 100%; /* Full width on smaller screens */
+  }
+  .home_search-bar {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .home_header h1 {
+    font-size: 40px; /* Smaller header text */
+  }
+}

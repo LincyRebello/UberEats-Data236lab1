@@ -1,0 +1,210 @@
+{
+	"info": {
+		"_postman_id": "08179742-246e-49bd-9daa-a94bd14a30c2",
+		"name": "API Documentation",
+		"description": "Postman collection for the restaurant ordering API.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38231062"
+	},
+	"item": [
+		{
+			"name": "Customer Register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"John Doe\",\n    \"email\": \"johndoe@example.com\",\n    \"password\": \"securepassword\",\n    \"date_of_birth\": \"1990-01-01\",\n    \"city\": \"Springfield\",\n    \"state\": \"IL\",\n    \"country\": \"USA\",\n    \"phone_number\": \"123-456-7890\",\n    \"delivery_address\": \"123 Elm Street\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8000/api/customers/register",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"customers",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Customer Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"johndoe@example.com\",\n    \"password\": \"securepassword\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8000/api/customers/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"customers",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Customer Profile",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}"
+					}
+				],
+				"url": {
+					"raw": "localhost:8000/api/customers/profile",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"customers",
+						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Restaurant Register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Burger Palace\",\n    \"email\": \"contact@burgerpalace.com\",\n    \"location\": \"123 Burger Lane\",\n    \"description\": \"Best burgers in town\",\n    \"contact_info\": \"987-654-3210\",\n    \"timings\": \"10am - 10pm\",\n    \"rating\": 4.5\n}"
+				},
+				"url": {
+					"raw": "localhost:8000/api/restaurants/register",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"restaurants",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Order",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"restaurant_id\": 1,\n    \"delivery_address\": \"123 Elm Street\",\n    \"is_pick\": false,\n    \"total_price\": 50.00,\n    \"items\": [\n        {\"dish_id\": 1, \"quantity\": 2},\n        {\"dish_id\": 2, \"quantity\": 1}\n    ]\n}"
+				},
+				"url": {
+					"raw": "localhost:8000/api/orders/create",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"orders",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add to Favorites",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "localhost:8000/api/favorites/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"favorites",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Customer Orders",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}"
+					}
+				],
+				"url": {
+					"raw": "localhost:8000/api/orders/customer-orders",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"orders",
+						"customer-orders"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

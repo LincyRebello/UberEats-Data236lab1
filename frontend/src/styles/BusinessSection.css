@@ -1,0 +1,44 @@
+.business-section {
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap to the next line */
+    justify-content: space-around;
+    margin-top: 40px;  /* Add margin-top to provide space */
+    padding: 20px;
+  }
+  
+  .business-card {
+    flex: 1 1 30%; /* Flex-grow, flex-shrink, and base width */
+    max-width: 30%; /* Ensures cards don't exceed 30% width */
+    box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+    margin: 10px;
+    text-align: center;
+  }
+  
+  .business-card img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .business-card h3 {
+    margin-top: 10px;
+  }
+  
+  .business-card p {
+    color: gray;
+  }
+  
+  /* Media query for smaller screens */
+  @media (max-width: 768px) {
+    .business-card {
+      flex: 1 1 45%; /* Adjusts base width for smaller screens */
+      max-width: 45%;
+    }
+  }
+  
+  /* Media query for very small screens */
+  @media (max-width: 480px) {
+    .business-card {
+      flex: 1 1 100%; /* Stacks cards vertically on very small screens */
+      max-width: 100%;
+    }
+  }

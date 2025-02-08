@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: backend
+        image: leoncorreiasjsu/backend:latest
+        ports:
+        - containerPort: 8000
+        command: ["sh"]
+        args: ["-c", "python3 manage.py makemigrations && python3 manage.py migrate && python3 manage.py runserver 0.0.0.0:8000"]
+        env:
+        - name: DJANGO_DB_NAME
+          value: ubereats
+        - name: DJANGO_DB_HOST
+          value: mongodb-service
+        - name: KAFKA_BROKER
+          value: kafka-service:9092
+        - name: REDIS_HOST
+          value: redis-service
+        - name: KAFKA_TOPIC
+          value: orders
+      - name: backend-consumer
+        image: leoncorreiasjsu/backend:latest
+        ports:
+        - containerPort: 8000
+        command: ["python"]
+        args: ["manage.py", "run_kafka_consumer"]
+        env:
+        - name: DJANGO_DB_NAME
+          value: ubereats
+        - name: DJANGO_DB_HOST
+          value: mongodb-service
+        - name: KAFKA_BROKER
+          value: kafka-service:9092
+        - name: REDIS_HOST
+          value: redis-service
+        - name: KAFKA_TOPIC
+          value: orders
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: backend
+  ports:
+  - protocol: TCP
+    port: 8080
+    targetPort: 8000
